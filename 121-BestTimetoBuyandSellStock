@@ -1,0 +1,20 @@
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        
+        maxprofit, minprice = 0, float('inf')
+        
+        #for i in xrange(len(prices)):
+        #    if prices[i] < minprice:
+        #        minprice = prices[i]
+        #    elif prices[i] - minprice > maxprofit:
+        #        maxprofit = prices[i] - minprice
+        #return maxprofit
+    
+        for p in prices:
+            minprice = min(p, minprice)
+            maxprofit = max(maxprofit, p - minprice)
+        return maxprofit
