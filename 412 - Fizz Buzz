@@ -1,0 +1,19 @@
+class Solution(object):
+    def fizzBuzz(self, n):
+        """
+        :type n: int
+        :rtype: List[str]
+        """
+        r = []
+        for i in range(n):
+            s = i+1
+            if s >= 15 and s%15 == 0:
+                r.append('FizzBuzz')
+            elif s >= 3 and s%3 == 0:
+                r.append('Fizz')
+            elif s >= 5 and s%5 == 0:
+                r.append('Buzz')
+            else:
+                r.append(str(s))
+                
+        return r
