@@ -1,0 +1,23 @@
+class Solution(object):
+    def strStr(self, haystack, needle):
+        """
+        :type haystack: str
+        :type needle: str
+        :rtype: int
+        """
+        
+        l = len(needle)
+        d = {}
+        
+        if l is 0:
+            return 0
+        
+        for i in range(len(haystack)-l+1):
+            win = haystack[i:i+l]
+            if win not in d:
+                d[win] = i
+        
+        if needle in d:
+            return d[needle]
+        else:
+            return -1
