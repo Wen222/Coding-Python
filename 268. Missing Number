@@ -1,0 +1,17 @@
+class Solution(object):
+    def missingNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        
+        #nums = sorted(nums)
+        
+        #for i in range(len(nums)):
+        #    if i==0 and nums[i]!=0:
+        #        return i
+        #    if i<len(nums)-1 and nums[i+1]-nums[i]>1:
+        #        return i+1
+        #return len(nums)
+        
+        return sum(range(len(nums)+1)) - sum(nums)
