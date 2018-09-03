@@ -1,0 +1,52 @@
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def findTarget(self, root, k):
+        """
+        :type root: TreeNode
+        :type k: int
+        :rtype: bool
+        """
+ # Set()
+        #vals = set()
+        #return self.find(root,k,vals)
+ # BST
+ # Note: use l < r instead of l > r otherwise element will be double counted.
+        blist = []
+        self.inorder(root,blist)
+        l,r = 0,len(blist)-1
+        while l < r:
+            s = blist[l]+blist[r]
+            if s==k:
+                return True
+            elif s>k:
+                r -= 1
+            else:
+                l += 1
+        return False
+                
+            
+    # Use Set()
+    # Note: k - root.val instead of root.val - k
+    def find(self,root,k,vals):
+        if not root:
+            return False
+        if k - root.val in vals:
+            #print root.val
+            return True
+        vals.add(root.val)
+        #print vals
+        return self.find(root.left,k,vals) or self.find(root.right,k,vals)
+    
+    # Use BST
+    def inorder(self, root, blist):
+        if not root:
+            return
+        self.inorder(root.left,blist)
+        blist.append(root.val)
+        self.inorder(root.right,blist)
