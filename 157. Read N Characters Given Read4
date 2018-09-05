@@ -1,0 +1,24 @@
+# The read4 API is already defined for you.
+# @param buf, a list of characters
+# @return an integer
+# def read4(buf):
+
+class Solution(object):
+    def read(self, buf, n):
+        """
+        :type buf: Destination buffer (List[str])
+        :type n: Maximum number of characters to read (int)
+        :rtype: The number of characters read (int)
+        """
+        
+        res = 0
+        sec = ['']*4
+        for i in range(n/4+1):
+            size = read4(sec)
+            if size:
+                size = min(size, n-res)
+                buf[res:res+size]=sec[:size]
+                res += size
+            else:
+                break
+        return res
