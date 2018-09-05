@@ -1,0 +1,17 @@
+class Solution(object):
+    def numSpecialEquivGroups(self, A):
+        """
+        :type A: List[str]
+        :rtype: int
+        """
+        
+        def count(word):
+            res = [0]*52
+            for i, l in enumerate(word):
+                res[ord(l)-ord('a')+26*(i%2)] += 1
+            #print tuple(res)
+            return tuple(res)
+        
+        #print {count(word) for word in A}
+        
+        return len({count(word) for word in A})
