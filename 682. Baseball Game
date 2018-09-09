@@ -1,0 +1,17 @@
+class Solution(object):
+    def calPoints(self, ops):
+        """
+        :type ops: List[str]
+        :rtype: int
+        """
+        his = []
+        for op in ops:
+            if op == '+':
+                his.append(his[-1]+his[-2])
+            elif op == 'D':
+                his.append(his[-1]*2)
+            elif op == 'C':
+                his.pop()
+            else:
+                his.append(int(op))
+        return sum(his)
