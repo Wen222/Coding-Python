@@ -1,0 +1,22 @@
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        # XOR
+        #a = 0
+        #for i in nums:
+        #    a ^= i
+            #print a
+        
+        #return a
+        
+        # Iterative
+        no_dup = []
+        for n in nums:
+            if n not in no_dup:
+                no_dup.append(n)
+            else:
+                no_dup.remove(n)
+        return no_dup.pop()
