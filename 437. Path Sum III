@@ -1,0 +1,25 @@
+class Solution(object):
+    
+            
+    def pathSum(self, root, sum):
+        """
+        :type root: TreeNode
+        :type sum: int
+        :rtype: int
+        """
+        
+        def helper(root, prev, sum):
+            if root is None:
+                return 0
+            
+            curr = prev + root.val
+            return int(curr==sum) + \
+                   helper(root.left,curr,sum) + \
+                   helper(root.right,curr,sum)
+        
+        if root is None:
+            return 0
+        
+        return helper(root,0,sum) + \
+               self.pathSum(root.left,sum) +\
+               self.pathSum(root.right,sum)
