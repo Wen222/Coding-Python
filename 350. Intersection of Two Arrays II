@@ -1,0 +1,17 @@
+class Solution(object):
+    def intersect(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        import collections
+        
+        res = []
+        dic1 = collections.Counter(nums1)
+        dic2 = collections.Counter(nums2)
+        for key in dic1:
+            if key in dic2:
+                n = min(dic1[key],dic2[key])
+                res += [key]*n
+        return res
