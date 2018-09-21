@@ -5,15 +5,21 @@ class Solution(object):
         :rtype: int
         """
         
-        col = 0
-        d = {}
-        for i in range(26):
-            c = chr(ord('A')+i)
-            d[c]=i+1
-        print d
+        #col = 0
+        #d = {}
+        #for i in range(26):
+        #    c = chr(ord('A')+i)
+        #    d[c]=i+1
+        #print d
+        #
+        #i = 0
+        #for l in reversed(s):
+        #    col += d[l]*26**i
+        #    i += 1
+        #return col
         
-        i = 0
-        for l in reversed(s):
-            col += d[l]*26**i
-            i += 1
-        return col
+        res = 0
+        for i in range(len(s)):
+            res *= 26
+            res += ord(s[i]) - ord('A') + 1
+        return res
