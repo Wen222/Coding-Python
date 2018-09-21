@@ -1,0 +1,19 @@
+class Solution(object):
+    def titleToNumber(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        
+        col = 0
+        d = {}
+        for i in range(26):
+            c = chr(ord('A')+i)
+            d[c]=i+1
+        print d
+        
+        i = 0
+        for l in reversed(s):
+            col += d[l]*26**i
+            i += 1
+        return col
