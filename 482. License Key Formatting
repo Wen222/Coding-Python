@@ -1,0 +1,25 @@
+class Solution(object):
+    def licenseKeyFormatting(self, S, K):
+        """
+        :type S: str
+        :type K: int
+        :rtype: str
+        """
+        
+        stk = []
+        res = []
+        for c in S:
+            if c!='-':
+                stk.append(c)
+        
+        i = 1
+        for c in reversed(stk):          
+            if i%K!=0:
+                res.append(c.upper())
+            else:
+                res.append(c.upper())
+                if i!= len(stk):
+                    res.append('-') 
+            
+            i += 1
+        return ''.join(reversed(res))
