@@ -23,3 +23,13 @@ class Solution(object):
             
             i += 1
         return ''.join(reversed(res))
+        
+        #Solution 2
+        res = []
+        for i in reversed(range(len(S))):
+            if S[i]=='-':
+                continue
+            if len(res)%(K+1)==K:
+                res += '-'
+            res += S[i].upper()
+        return ''.join(reversed(res))
