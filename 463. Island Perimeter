@@ -38,3 +38,17 @@ class Solution(object):
                     if j!=0 and grid[i][j-1]==1:
                         p += 1
         return 4*cnt - 2*p
+        
+#Solution 3
+class Solution(object):
+    def islandPerimeter(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        import operator
+        mat = list([map(operator.ne,[0]+row,row+[0]) for row in grid + map(list, zip(*grid))])
+        s = 0
+        for row in mat:
+            s += sum(row)
+        return s
