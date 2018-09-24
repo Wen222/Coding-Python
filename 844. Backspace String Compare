@@ -18,3 +18,24 @@ class Solution(object):
                     yield S[i]
         
         return all(x==y for x,y in itertools.izip_longest(findnextchar(S),findnextchar(T)))
+        
+        
+#Solution 2
+class Solution(object):
+    def backspaceCompare(self, S, T):
+        """
+        :type S: str
+        :type T: str
+        :rtype: bool
+        """
+        
+        def stk(S):
+            res = []
+            for c in S:
+                if c!='#':
+                    res.append(c)
+                elif res:
+                    res.pop()
+            return ''.join(res)
+        
+        return stk(S)==stk(T)
