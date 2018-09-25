@@ -1,0 +1,24 @@
+class Solution(object):
+    def longestUnivaluePath(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        self.ans = 0
+        def ext(node):
+            if not node:
+                return 0
+            left,right=ext(node.left),ext(node.right)
+            if node.left and node.val==node.left.val:
+                left +=1
+            else:
+                left = 0
+            if node.right and node.val==node.right.val:
+                right +=1
+            else:
+                right = 0
+            self.ans = max(self.ans,left+right)
+            return max(left,right)
+        
+        ext(root)
+        return self.ans
