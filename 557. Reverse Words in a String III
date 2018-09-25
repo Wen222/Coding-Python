@@ -13,3 +13,14 @@ class Solution(object):
         for word in words:
             res.append(rev(word))
         return ' '.join(res)
+
+# Simpler code
+class Solution(object):
+    def reverseWords(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        
+        reversed_words = [word[::-1] for word in s.split(' ')]
+        return ' '.join(reversed_words)
