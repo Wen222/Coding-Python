@@ -1,0 +1,19 @@
+class Solution(object):
+    def removeElements(self, head, val):
+        """
+        :type head: ListNode
+        :type val: int
+        :rtype: ListNode
+        """
+        
+        dummy = ListNode(float('-Inf'))
+        dummy.next = head
+        prev, curr = dummy, dummy.next
+        
+        while curr:
+            if curr.val == val:
+                prev.next = curr.next
+            else:
+                prev = curr
+            curr = curr.next
+        return dummy.next
