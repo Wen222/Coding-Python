@@ -16,3 +16,6 @@ class Solution(object):
             
        
         return list(s2)
+        
+#Solution 2
+        return list(set(nums1)&set(nums2))
