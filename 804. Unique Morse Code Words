@@ -16,3 +16,8 @@ class Solution(object):
             p = ''.join([dic[x] for x in word])
             pat.add(p)
         return len(pat)
+
+#Solution 2
+#Simpler code
+        seen = {''.join(code[ord(c)-ord('a')] for c in word) for word in words}
+        return len(seen)
