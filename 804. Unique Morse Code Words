@@ -1,0 +1,18 @@
+class Solution(object):
+    def uniqueMorseRepresentations(self, words):
+        """
+        :type words: List[str]
+        :rtype: int
+        """
+        code = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.",\
+                "--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+        dic = {}
+        for i in range(26):
+            l = chr(i + ord('a')) 
+            dic[l]=code[i]
+        
+        pat = set()
+        for word in words: 
+            p = ''.join([dic[x] for x in word])
+            pat.add(p)
+        return len(pat)
