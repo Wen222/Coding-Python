@@ -1,0 +1,14 @@
+class Solution(object):
+    def pivotIndex(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        S = sum(nums)
+        ls = 0
+        for i,x in enumerate(nums):
+            if ls == (S-ls-x):
+                return i
+            else:
+                ls += x
+        return -1
